@@ -1,6 +1,7 @@
 package com.example.demo
 
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -16,4 +17,12 @@ class HorseController(
         val listOfPonies = horseService.getAllHorses()
         return (listOfPonies)
     }
+
+//    @PostMapping("/new")
+//    fun createNewHorse(
+//
+//    ): Horse {
+//        val horse = horseService.createNewHorse()
+//        return (horse)
+//    }
 }

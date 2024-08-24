@@ -9,4 +9,8 @@ class HorseService(
     fun getAllHorses(): List<Horse> {
         return horseRepository.nameme()
     }
+
+//    fun createNewHorse(): Horse {
+//        return horse
+//    }
 }
