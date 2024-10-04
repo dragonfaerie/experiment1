@@ -23,7 +23,7 @@ filterFile = "filter.rgf"
 [redgateCompare.postgresql.options.ignores]
 ignoreNewlinesInTextObjects = "off"
 
-[environments.target1]
-url = "jdbc:postgresql://localhost:5432/test1"
+[environments.horsegame]
+url = "jdbc:postgresql://localhost:5432/horsegame"
 user = "kit"
 schemas = [ "test1" ]
