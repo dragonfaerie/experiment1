@@ -2,10 +2,9 @@ package com.example.demo.controller
 
 import com.example.demo.entity.Horse
 import com.example.demo.service.HorseService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
@@ -14,12 +13,20 @@ class HorseController(
     private val horseService: HorseService
 ): BaseController() {
     @GetMapping("/all")
-    fun getAllHorses(
-        //needed values go here
-    ): List<Horse> {
+    fun getAllHorses(): List<Horse> {
         val listOfPonies = horseService.getAllHorses()
         return (listOfPonies)
     }
+
+    @PostMapping
+    fun createHorse(@RequestBody horse: Horse): ResponseEntity<Horse> =
+        ResponseEntity.status(HttpStatus.CREATED).body(horseService.createHorse(horse))
+
+//    @GetMapping("{id}")
+//    fun getHorse(): Horse {
+//        val horse = horseService.getHorse()
+//        return horse
+//    }
 }
 
 //

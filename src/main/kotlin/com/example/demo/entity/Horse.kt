@@ -4,7 +4,7 @@ import jakarta.persistence.*
 
 
 @Entity
-@Table(name = "horses")
+@Table(name = "horse")
 data class Horse(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

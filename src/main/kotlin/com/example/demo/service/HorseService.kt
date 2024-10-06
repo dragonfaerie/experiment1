@@ -3,7 +3,6 @@ package com.example.demo.service
 import com.example.demo.entity.Horse
 import com.example.demo.repository.HorseRepository
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class HorseService(
@@ -12,6 +11,8 @@ class HorseService(
     fun getAllHorses(): List<Horse> {
         return horseRepository.findAll()
     }
+
+    fun createHorse(horse: Horse): Horse = horseRepository.save(horse)
 
 }
 //
