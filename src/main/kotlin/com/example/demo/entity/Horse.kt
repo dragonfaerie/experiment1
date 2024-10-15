@@ -4,10 +4,10 @@ import jakarta.persistence.*
 
 
 @Entity
-@Table(name = "horse")
+@Table(name = "horse", schema = "horsegame")
 data class Horse(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val horse_name: String = "",
     val color: String = "",

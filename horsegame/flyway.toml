@@ -1,6 +1,6 @@
 databaseType = "PostgreSql"
-id = "5f94fd21-33b5-4f73-881a-f74dc6790d2f"
-name = "experiment"
+id = "b2500b10-36e8-48ec-a237-ad5c85c110fb"
+name = "horsegame"
 
 [flyway]
 locations = [ "filesystem:migrations" ]
@@ -9,8 +9,8 @@ outOfOrder = true
 schemaModelLocation = "schema-model"
 validateMigrationNaming = true
 
-  [flyway.check]
-  majorTolerance = 0
+[flyway.check]
+majorTolerance = 0
 
 [flywayDesktop]
 developmentEnvironment = "development"
@@ -22,8 +22,3 @@ filterFile = "filter.rgf"
 
 [redgateCompare.postgresql.options.ignores]
 ignoreNewlinesInTextObjects = "off"
-
-[environments.horsegame]
-url = "jdbc:postgresql://localhost:5432/horsegame"
-user = "kit"
-schemas = [ "horsegame" ]
