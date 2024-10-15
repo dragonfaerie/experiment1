@@ -42,40 +42,9 @@ class HorseController(
         }
     }
 
+    @DeleteMapping("/{id}")
+        fun deleteHorse(@PathVariable id: Long): ResponseEntity<Void> {
+        horseService.deleteHorse(id)
+        return ResponseEntity.noContent().build()
+    }
 }
-
-//
-//@RestController
-//@RequestMapping("/users")
-//class UserController(private val userService: UserService) {
-//
-
-//
-//    @PostMapping
-//    fun createUser(@RequestBody user: User): ResponseEntity<User> =
-//        ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user))
-//
-//    @DeleteMapping("/{id}")
-//    fun deleteUser(@PathVariable id: Long): ResponseEntity<Void> {
-//        userService.deleteUser(id)
-//        return ResponseEntity.noContent().build()
-//    }
-
-
-
-//    @GetMapping("/{invoiceId}")
-//    fun getInvoice(
-//        @PathVariable organizationKey: String,
-//        @PathVariable invoiceId: String,
-//    ): ResponseEntity<ByteArray> {
-//        setMDC(organizationKey)
-//
-//        val globalKey = proService.getOrganization(organizationKey).globalKey()
-//        val invoice = invoiceService.getInvoice(globalKey, invoiceId)
-//
-//        return ResponseEntity.ok()
-//            .contentLength(invoice.size.toLong())
-//            .contentType(MediaType.APPLICATION_PDF)
-//            .body(invoice)
-//    }
-//}
