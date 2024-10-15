@@ -8,7 +8,7 @@ import java.util.*
 
 @Repository
 interface HorseRepository : JpaRepository<Horse, Long> {
-//    fun findHorseById(horseId: Long): Optional<Horse>
+    fun findHorseById(id: Long): Optional<Horse>
 override fun findAll(): List<Horse>
 }
 

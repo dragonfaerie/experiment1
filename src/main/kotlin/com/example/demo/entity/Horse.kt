@@ -8,8 +8,8 @@ import jakarta.persistence.*
 data class Horse(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val horse_id: Long = 0,
-    val horse_name: String,
-    val color: String,
-    val pattern: String
+    val id: Long = 0,
+    val horse_name: String = "",
+    val color: String = "",
+    val pattern: String = ""
 )

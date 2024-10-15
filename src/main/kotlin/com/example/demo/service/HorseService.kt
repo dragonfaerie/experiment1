@@ -14,6 +14,8 @@ class HorseService(
 
     fun createHorse(horse: Horse): Horse = horseRepository.save(horse)
 
+    fun getHorseById(id: Long): Horse? = horseRepository.findHorseById(id).orElse(null)
+
 }
 //
 //class UserService(private val userRepository: UserRepository) {
