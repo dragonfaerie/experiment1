@@ -27,9 +27,21 @@ class HorseController(
         horseService.getHorseById(id)?.let { ResponseEntity.ok(it) }
             ?: ResponseEntity.notFound().build()
 
-//    @PutMapping("/{id}")
-//    fun updateHorse(@RequestBody horse: Horse): ResponseEntity<Horse> =
-//
+    @PatchMapping("/{id}")
+    fun updateHorse(
+        @PathVariable id: Long,
+        @RequestBody updatedHorse: Horse
+    ): ResponseEntity<Horse> {
+        val existingHorse = horseService.getHorseById(id)
+
+        return if (existingHorse != null) {
+            val updated = horseService.updateHorse(id, updatedHorse)
+            ResponseEntity.ok(updated)
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+
 }
 
 //
