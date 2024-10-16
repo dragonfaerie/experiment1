@@ -1,9 +1,7 @@
 package com.example.demo.controller
 
 import com.example.demo.entity.Barn
-import com.example.demo.entity.Horse
 import com.example.demo.service.BarnService
-import com.example.demo.service.HorseService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/barn")
 class BarnController(
-    private val barnService: BarnService
+    private val barnService: BarnService,
 ) : BaseController() {
     @GetMapping("/all")
     fun getAllBarns(): List<Barn> {

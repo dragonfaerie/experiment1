@@ -1,7 +1,6 @@
 package com.example.demo.service
 
 import com.example.demo.entity.Barn
-import com.example.demo.entity.Horse
 import com.example.demo.repository.BarnRepository
 import org.springframework.stereotype.Service
 
@@ -33,7 +32,7 @@ class BarnService(
                 tack_room = updatedBarn.tack_room,
                 shower_stall = updatedBarn.shower_stall,
                 indoor_arena = updatedBarn.indoor_arena,
-                outdoor_arena = updatedBarn.outdoor_arena
+                outdoor_arena = updatedBarn.outdoor_arena,
             )
 
         return barnRepository.save(barnToUpdate)

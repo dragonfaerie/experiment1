@@ -15,5 +15,5 @@ data class Barn(
     val tack_room: Boolean = false,
     val shower_stall: Boolean = false,
     val indoor_arena: Boolean = false,
-    val outdoor_arena: Boolean = false
+    val outdoor_arena: Boolean = false,
 )
