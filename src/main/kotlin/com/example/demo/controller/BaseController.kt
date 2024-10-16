@@ -1,4 +1,3 @@
 package com.example.demo.controller
 
-abstract class BaseController() {
-}
+abstract class BaseController

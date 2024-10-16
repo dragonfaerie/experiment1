@@ -2,7 +2,6 @@ package com.example.demo.entity
 
 import jakarta.persistence.*
 
-
 @Entity
 @Table(name = "horse", schema = "horsegame")
 data class Horse(
@@ -11,5 +10,5 @@ data class Horse(
     val id: Long = 0,
     val horse_name: String = "",
     val color: String = "",
-    val pattern: String = ""
+    val pattern: String = "",
 )

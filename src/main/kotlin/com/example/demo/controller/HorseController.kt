@@ -5,13 +5,12 @@ import com.example.demo.service.HorseService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.util.*
 
 @RestController
 @RequestMapping("/horse")
 class HorseController(
-    private val horseService: HorseService
-): BaseController() {
+    private val horseService: HorseService,
+) : BaseController() {
     @GetMapping("/all")
     fun getAllHorses(): List<Horse> {
         val listOfPonies = horseService.getAllHorses()
@@ -19,18 +18,21 @@ class HorseController(
     }
 
     @PostMapping
-    fun createHorse(@RequestBody horse: Horse): ResponseEntity<Horse> =
-        ResponseEntity.status(HttpStatus.CREATED).body(horseService.createHorse(horse))
+    fun createHorse(
+        @RequestBody horse: Horse,
+    ): ResponseEntity<Horse> = ResponseEntity.status(HttpStatus.CREATED).body(horseService.createHorse(horse))
 
     @GetMapping("/{id}")
-    fun getUserById(@PathVariable id: Long): ResponseEntity<Horse> =
+    fun getUserById(
+        @PathVariable id: Long,
+    ): ResponseEntity<Horse> =
         horseService.getHorseById(id)?.let { ResponseEntity.ok(it) }
             ?: ResponseEntity.notFound().build()
 
     @PatchMapping("/{id}")
     fun updateHorse(
         @PathVariable id: Long,
-        @RequestBody updatedHorse: Horse
+        @RequestBody updatedHorse: Horse,
     ): ResponseEntity<Horse> {
         val existingHorse = horseService.getHorseById(id)
 
@@ -43,7 +45,9 @@ class HorseController(
     }
 
     @DeleteMapping("/{id}")
-        fun deleteHorse(@PathVariable id: Long): ResponseEntity<Void> {
+    fun deleteHorse(
+        @PathVariable id: Long,
+    ): ResponseEntity<Void> {
         horseService.deleteHorse(id)
         return ResponseEntity.noContent().build()
     }
