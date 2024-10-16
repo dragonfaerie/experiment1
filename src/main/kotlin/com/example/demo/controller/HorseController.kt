@@ -23,7 +23,7 @@ class HorseController(
     ): ResponseEntity<Horse> = ResponseEntity.status(HttpStatus.CREATED).body(horseService.createHorse(horse))
 
     @GetMapping("/{id}")
-    fun getUserById(
+    fun getHorseById(
         @PathVariable id: Long,
     ): ResponseEntity<Horse> =
         horseService.getHorseById(id)?.let { ResponseEntity.ok(it) }
