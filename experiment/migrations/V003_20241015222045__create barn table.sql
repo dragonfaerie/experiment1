@@ -1,11 +1,13 @@
-CREATE TABLE IF NOT EXISTS barn(
-    id serial primary key not null,
-    barn_name varchar(255) not null,
-    owner int not null,
-    size int not null,
-    feed_room boolean,
-    tack_room boolean,
-    shower_stall boolean,
-    indoor_arena boolean,
-    outdoor_arena boolean
+CREATE TABLE IF NOT EXISTS barn (
+    id SERIAL PRIMARY KEY,
+    barn_name VARCHAR(255) NOT NULL,
+    owner INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    size INT NOT NULL CHECK (size > 0),
+    feed_room BOOLEAN DEFAULT FALSE,
+    tack_room BOOLEAN DEFAULT FALSE,
+    shower_stall BOOLEAN DEFAULT FALSE,
+    indoor_arena BOOLEAN DEFAULT FALSE,
+    outdoor_arena BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

@@ -1,6 +1,7 @@
 package com.example.demo.entity
 
 import jakarta.persistence.*
+import java.time.LocalDate
 
 @Entity
 @Table(name = "barn", schema = "horsegame")
@@ -16,4 +17,6 @@ data class Barn(
     val shower_stall: Boolean = false,
     val indoor_arena: Boolean = false,
     val outdoor_arena: Boolean = false,
+    val created_at: LocalDate = LocalDate.now(),
+    val update_at: LocalDate = LocalDate.now(),
 )
