@@ -1,6 +1,7 @@
 package com.example.demo.controller
 
 import com.example.demo.entity.Barn
+import com.example.demo.entity.Horse
 import com.example.demo.service.BarnService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -26,15 +27,21 @@ class BarnController(
     fun getBarnById(
         @PathVariable id: Long,
     ): ResponseEntity<Barn> =
-        barnService.getBarnById(id)?.let { ResponseEntity.ok(it) }
+        barnService.getBarnByBarnId(id)?.let { ResponseEntity.ok(it) }
             ?: ResponseEntity.notFound().build()
+
+    @GetMapping("/{id}/horses")
+    fun getHorsesForBarn(
+        @PathVariable id: Long,
+    ): List<Horse> =
+        barnService.getAllHorsesByBarn(id)
 
     @PatchMapping("/{id}")
     fun updateBarn(
         @PathVariable id: Long,
         @RequestBody updatedBarn: Barn,
     ): ResponseEntity<Barn> {
-        val existingBarn = barnService.getBarnById(id)
+        val existingBarn = barnService.getBarnByBarnId(id)
 
         return if (existingBarn != null) {
             val updated = barnService.updateBarn(id, updatedBarn)

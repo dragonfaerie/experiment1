@@ -8,15 +8,17 @@ import java.time.LocalDate
 data class Barn(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
-    val barn_name: String = "",
+    val barnId: Long = 0,
+    val barnName: String = "",
     val owner: Int = 0,
     val size: Int = 0,
-    val feed_room: Boolean = false,
-    val tack_room: Boolean = false,
-    val shower_stall: Boolean = false,
-    val indoor_arena: Boolean = false,
-    val outdoor_arena: Boolean = false,
-    val created_at: LocalDate = LocalDate.now(),
-    val update_at: LocalDate = LocalDate.now(),
-)
+    val feedRoom: Boolean = false,
+    val tackRoom: Boolean = false,
+    val showerStall: Boolean = false,
+    val indoorArena: Boolean = false,
+    val outdoorArena: Boolean = false,
+    val createdAt: LocalDate = LocalDate.now(),
+    val updatedAt: LocalDate = LocalDate.now(),
+) {
+    constructor() : this(0, "", 0, 0, false, false, false, false, false)
+}

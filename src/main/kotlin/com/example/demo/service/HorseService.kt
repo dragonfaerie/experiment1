@@ -25,7 +25,7 @@ class HorseService(
 
         val horseToUpdate =
             existingHorse.copy(
-                horse_name = updatedHorse.horse_name,
+                horseName = updatedHorse.horseName,
                 color = updatedHorse.color,
                 pattern = updatedHorse.pattern,
             )

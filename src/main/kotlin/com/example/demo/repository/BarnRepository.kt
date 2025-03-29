@@ -7,7 +7,7 @@ import java.util.*
 
 @Repository
 interface BarnRepository : JpaRepository<Barn, Long> {
-    fun findBarnById(id: Long): Optional<Barn>
+    fun findBarnByBarnId(barnId: Long): Optional<Barn>
 
     override fun findAll(): List<Barn>
 }
