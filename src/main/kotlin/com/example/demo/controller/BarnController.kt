@@ -5,7 +5,13 @@ import com.example.demo.entity.Horse
 import com.example.demo.service.BarnService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PatchMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/barn")
@@ -33,8 +39,7 @@ class BarnController(
     @GetMapping("/{id}/horses")
     fun getHorsesForBarn(
         @PathVariable id: Long,
-    ): List<Horse> =
-        barnService.getAllHorsesByBarn(id)
+    ): List<Horse> = barnService.getAllHorsesByBarn(id)
 
     @PatchMapping("/{id}")
     fun updateBarn(

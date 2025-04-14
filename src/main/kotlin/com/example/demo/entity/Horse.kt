@@ -1,7 +1,12 @@
 package com.example.demo.entity
 
-import com.fasterxml.jackson.annotation.JsonCreator
-import jakarta.persistence.*
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "horse", schema = "horsegame")
@@ -23,7 +28,6 @@ data class Horse(
     val water: Boolean = false,
     val owner: Int = 0,
     val currentLocation: String = "",
-
     @ManyToOne
     @JoinColumn(name = "home_barn", nullable = false)
     val homeBarn: Barn,
