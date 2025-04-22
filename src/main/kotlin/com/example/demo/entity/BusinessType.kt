@@ -13,5 +13,5 @@ data class BusinessType(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val businessTypeId: Int,
     val businessType: String,
-    val businessStatus: Boolean
+    val businessStatus: Boolean,
 )

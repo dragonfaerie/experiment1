@@ -5,6 +5,4 @@ import java.util.Optional
 
 interface ProductRepository {
     fun findProductByProductId(productId: Long): Optional<Product>
-
 }
-

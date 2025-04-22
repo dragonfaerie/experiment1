@@ -16,5 +16,4 @@ data class Product(
     val productType: String,
     val productName: String,
     val productPrice: BigDecimal,
-) {
-}
+)
